@@ -3,12 +3,15 @@ namespace infrajs\tester;
 use infrajs\access\Access;
 use infrajs\path\Path;
 use infrajs\load\Load;
+use infrajs\infra\Infra;
 use infrajs\template\Template;
 
 if (!is_file('vendor/autoload.php')) {
 	chdir('../../../');
 	require_once('vendor/autoload.php');
 }
+
+Infra::initRequire();
 
 Access::test(true);
 
