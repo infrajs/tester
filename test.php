@@ -1,8 +1,15 @@
 <?php
-
+namespace infrajs\infra;
+use infrajs\access\Access;
+use infrajs\event\Event;
 use infrajs\ans\Ans;
 
-infra_test(true);
+if (!is_file('vendor/autoload.php')) {
+	chdir('../../../../');
+	require_once('vendor/autoload.php');
+}
+
+Access::test(true);
 
 if (isset($_GET['list'])) {
 	$ans = array();
