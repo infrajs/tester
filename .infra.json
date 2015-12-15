@@ -1,0 +1,5 @@
+{
+	"tester":{
+		"test":["*tester/tests/","*tester/tester.php"]
+	}
+}

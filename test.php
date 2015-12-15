@@ -25,5 +25,5 @@ if (isset($_GET['list'])) {
 }
 
 $plugin = $_SERVER['QUERY_STRING'];
-$code = Load::loadTEXT('*'.$plugin.'/.test.js');
+$code = Load::loadTEXT('-'.$plugin.'/.test.js');
 echo $code;

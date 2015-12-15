@@ -1,6 +1,6 @@
 infra.test=function(plugin,step){
 	if(!plugin){
-		return infra.loadJSON('*infra/ext/test.php?list').list;
+		return infra.loadJSON('-infra/ext/test.php?list').list;
 	}
 	setTimeout(function(){//надо чтобы в консоли сначало вывелась строка return а потом уже тест запустился. наоборот тупо.
 		infra.test.plugin=plugin;
@@ -8,8 +8,8 @@ infra.test=function(plugin,step){
 		infra.test.step=step;
 		infra.test.iserr=false;
 		infra.test.tasks=[];
-		infra.unload('*infra/ext/test.php?'+plugin);
-		infra.require('*infra/ext/test.php?'+plugin);
+		infra.unload('-infra/ext/test.php?'+plugin);
+		infra.require('-infra/ext/test.php?'+plugin);
 	},1);
 	return 'Тест '+plugin;
 }
