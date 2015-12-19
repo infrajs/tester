@@ -20,7 +20,7 @@ ini_set('error_reporting',E_ALL & ~E_NOTICE & ~E_STRICT);
 ini_set('display_errors', 1);
 $plugin=Ans::get('plugin');
 
-$conf=Infra::config();
+$conf=Config::get();
 $list = array();
 foreach ($conf as $name=>$c) {
 	if ($plugin && $plugin != $name) continue;
