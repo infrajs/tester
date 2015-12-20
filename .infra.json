@@ -1,5 +1,3 @@
 {
-	"tester":{
-		"test":["*tester/tests/","*tester/tester.php"]
-	}
+	"*tester":["tests/", "tester.php"]
 }

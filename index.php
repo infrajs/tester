@@ -3,7 +3,7 @@ use infrajs\access\Access;
 use infrajs\path\Path;
 use infrajs\load\Load;
 use infrajs\ans\Ans;
-use infrajs\infra\Infra;
+use infrajs\infra\Config;
 use infrajs\infra\Each;
 use infrajs\template\Template;
 
@@ -12,23 +12,26 @@ if (!is_file('vendor/autoload.php')) {
 	require_once('vendor/autoload.php');
 }
 
-Infra::init();
-
+Config::init();
 Access::test(true);
 
-ini_set('error_reporting',E_ALL & ~E_NOTICE & ~E_STRICT);
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT);
 ini_set('display_errors', 1);
+
 $plugin=Ans::get('plugin');
 
+
 $conf=Config::get();
+
+
 $list = array();
 foreach ($conf as $name=>$c) {
 	if ($plugin && $plugin != $name) continue;
 	if(empty($conf[$name]['tester'])) continue;
 	$list[$name]=[];
-	Each::exec($conf[$name]['tester'], function ($tsrc) use (&$list, $name){
+	Each::exec($conf[$name]['tester'], function ($tsrc) use (&$list, $name, $c){
 		if(Path::isDir($tsrc)) {
-			$tsrc=Path::theme($tsrc);
+			$tsrc=Path::theme('-'.$name.'/'.$tsrc);
 			if(!$tsrc) {
 				echo '<pre>';
 				print_r($c);
