@@ -5,9 +5,9 @@
 	<!--
 		<script src="?-infra/js.php"></script>
 	-->
-	<link href="?./vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-	<script src="?./vendor/components/jquery/jquery.js"></script>
-	<script src="?./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<link href="?vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<script src="?vendor/components/jquery/jquery.js"></script>
+	<script src="?vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 	
 	<style>
 		.navbar ul {
