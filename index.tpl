@@ -3,7 +3,7 @@
 <head>
 	
 	<!--
-		<script src="?-infra/js.php"></script>
+		<script src="?-config/js.php"></script>
 	-->
 	<link href="?vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<script src="?vendor/components/jquery/jquery.js"></script>

@@ -3,8 +3,8 @@ use infrajs\access\Access;
 use infrajs\path\Path;
 use infrajs\load\Load;
 use infrajs\ans\Ans;
-use infrajs\infra\Config;
-use infrajs\infra\Each;
+use infrajs\config\Config;
+use infrajs\each\Each;
 use infrajs\template\Template;
 
 if (!is_file('vendor/autoload.php')) {
