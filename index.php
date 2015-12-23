@@ -30,8 +30,9 @@ foreach ($conf as $name=>$c) {
 	if(empty($conf[$name]['tester'])) continue;
 	$list[$name]=[];
 	Each::exec($conf[$name]['tester'], function ($tsrc) use (&$list, $name, $c){
+		$tsrc=Path::theme('-'.$name.'/'.$tsrc);
 		if(Path::isDir($tsrc)) {
-			$tsrc=Path::theme('-'.$name.'/'.$tsrc);
+			
 			if(!$tsrc) {
 				echo '<pre>';
 				print_r($c);
@@ -64,7 +65,7 @@ foreach($list as $name=>$files) {
 				$res = array('title' => $name.' '.$finfo['name'], 'result' => 0, 'msg' => 'Некорректный json');
 			}
 		}
-		$res['src'] = '-'.$name.'/tests/'.$finfo['file'];
+		$res['src'] = '-'.$name.'/'.$finfo['file'];
 		$res['name'] = $finfo['file']; //имя тестируемого файла
 		$data[$name][] = $res;
 	}
