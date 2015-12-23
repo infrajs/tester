@@ -3,11 +3,11 @@
 <head>
 	
 	<!--
-		<script src="?-config/js.php"></script>
+		<script src="/-config/js.php"></script>
 	-->
-	<link href="?vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-	<script src="?vendor/components/jquery/jquery.js"></script>
-	<script src="?vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<link href="/vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<script src="/vendor/components/jquery/jquery.js"></script>
+	<script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 	
 	<style>
 		.navbar ul {
@@ -74,12 +74,12 @@
 </body>
 </html>
 {someres:}
-	<tr class="bg-info"><th colspan="4"><a href="?-admin/config.php?plugin={~key}">{~key}</a></th></tr>
+	<tr class="bg-info"><th colspan="4"><a href="/-admin/config.php?plugin={~key}">{~key}</a></th></tr>
 	{::sometest}
 	{sometest:}
 		<tr class="{class?class?(result?:bg-success?:bg-danger)}">
 			<td>
-			<a href="?{src}">{name}</a>
+			<a href="/{src}">{name}</a>
 			</td>
 			<td>
 			{title}
