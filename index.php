@@ -15,9 +15,6 @@ if (!is_file('vendor/autoload.php')) {
 Config::init();
 Access::test(true);
 
-ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT);
-ini_set('display_errors', 1);
-
 $plugin=Ans::get('plugin');
 
 
@@ -27,17 +24,16 @@ $conf=Config::get();
 $list = array();
 foreach ($conf as $name=>$c) {
 	if ($plugin && $plugin != $name) continue;
-	if(empty($conf[$name]['tester'])) continue;
+	if (empty($conf[$name]['tester'])) continue;
 	$list[$name]=[];
 	Each::exec($conf[$name]['tester'], function ($tsrc) use (&$list, $name, $c){
 		$tsrc=Path::theme('-'.$name.'/'.$tsrc);
+		if(!$tsrc) {
+			echo '<pre>';
+			print_r($c);
+			throw new \Exception('Tester. Некорректно указан путь до теста.');
+		}
 		if(Path::isDir($tsrc)) {
-			
-			if(!$tsrc) {
-				echo '<pre>';
-				print_r($c);
-				throw new \Exception('Tester. Некорректно указан путь до теста.');
-			}
 			$files = scandir($tsrc);
 			foreach($files as $file){
 				if ($file{0} == '.') continue;
@@ -45,7 +41,7 @@ foreach ($conf as $name=>$c) {
 				$list[$name][]=Path::pretty($tsrc.$file);
 			}
 		} else {
-			$list[$name][]=$tsrc;
+			$list[$name][]=Path::pretty($tsrc);
 		}
 	});
 }

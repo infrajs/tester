@@ -3,8 +3,11 @@
 	"license": "GPL3",
 	"require":{
 		"infrajs/once":"~1",
+		"infrajs/ans":"~1",
+		"infrajs/each":"~1",
 		"infrajs/path":"~1",
-		"infrajs/admin":"~1"
+		"infrajs/access":"~1",
+		"infrajs/config":"~1"
 	},
 	"autoload": {
 		"psr-4": { "infrajs\\tester\\": "/" }
