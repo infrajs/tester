@@ -52,5 +52,5 @@
 		var task=this.tasks[this.index];
 		task[2]();
 	}
-	infra.test=test;
+	infrajs.test=test;
 })();
