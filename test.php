@@ -20,7 +20,7 @@ if (isset($_GET['list'])) {
 
 	Access::test(true);
 
-	$plugin=Ans::get('plugin');
+	$plugin=Ans::GET('plugin');
 
 
 	$conf=Config::get();
@@ -45,7 +45,7 @@ if (isset($_GET['list'])) {
 
 	return Ans::ret($ans);
 }
-$plugin=Ans::get('plugin');
+$plugin=Ans::GET('plugin');
 if ($plugin) {
 	$conf=Config::get();
 	if (empty($conf[$plugin])) return Ans::err($ans, 'Плагин не найден');

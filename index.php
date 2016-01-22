@@ -15,7 +15,7 @@ if (!is_file('vendor/autoload.php')) {
 Config::init();
 Access::test(true);
 
-$plugin=Ans::get('plugin');
+$plugin=Ans::GET('plugin');
 
 
 $conf=Config::get();
