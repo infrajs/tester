@@ -57,11 +57,12 @@ foreach($list as $name=>$files) {
 		} else {
 			
 			$res = Load::json_decode($text, true);
+			
 			if (!is_array($res)) {
 				$res = array('title' => $name.' '.$finfo['name'], 'result' => 0, 'msg' => 'Некорректный json');
 			}
 		}
-		$res['src'] = '-'.$name.'/'.$finfo['file'];
+		$res['src'] = $finfo['src'];
 		$res['name'] = $finfo['file']; //имя тестируемого файла
 		$data[$name][] = $res;
 	}
