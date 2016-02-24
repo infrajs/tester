@@ -2,9 +2,9 @@
 <html>
 <head>
 	
-	<!--
-		<script src="/-config/js.php"></script>
-	-->
+	
+	<script src="/-collect/js.php"></script>
+	
 	<link href="/vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<script src="/vendor/components/jquery/jquery.js"></script>
 	<script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -20,6 +20,10 @@
 		}
 		.collapsed {
 			display:none;
+		}
+		h1 {
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 		.table {
 			margin-top:30px;
@@ -49,7 +53,12 @@
 	</style>
 </head>
 <body>
-	<div style="clear:both;"></div>
+	{~length(list)?:body?:nobody}
+</body>
+</html>
+{nobody:}<div class="well">Ошибки не найдены. <a href=".">Тесты</a>.</div>
+{body:}
+	{type=:errors?:ermsgtop}
 	<table cellpadding="0" cellspacing="0" class="table">
 	<thead>
 		<tr class="bg-primary">
@@ -68,11 +77,26 @@
 		</tr>
 	</thead>
 	<tbody>
-		{::someres}
+		{list::someres}
 	</tbody>
 	</table>
-</body>
-</html>
+	{type=:errors?:ermsgbot}
+{ermsgtop:}<h1 class="alert alert-danger">При тестировании обнаружены критические ошибки</h1>
+{ermsgbot:}
+	<div class="well">
+		Похоже что ошибка в плагине? 
+		<br>Для исправления нужно изменять код плагина?
+		<ol>
+			<li>PRO: сделать форк, исправить ошибку, в проект подключить форк, а в оригинальный репозитарий отправить pull-request.<br>В комментарии к pull-request оставить конструктивный комментарий.</li>
+			<li>LUCKY: Отключить для плагина тестирование в корневом .infra.json. или каждый раз игнорировать сообщение об ошибке<br>На странице плагина в issues оставить гневный комментарий.</li>
+			<li>LASY: Отказаться от использования расширения, убрать о нём запись из composer.json.<br>На странице плагина в issues оставить гневный комментарий.</li>
+		</ol>
+<pre><code>{
+	"plugin":{
+		"tester":false
+	}
+}</code></pre>
+	</div>
 {someres:}
 	<tr class="bg-info"><th colspan="4"><a href="/-admin/config.php?plugin={~key}">{~key}</a></th></tr>
 	{::sometest}

@@ -5,6 +5,7 @@ use infrajs\load\Load;
 use infrajs\ans\Ans;
 use infrajs\config\Config;
 use infrajs\each\Each;
+//use infrajs\view\View;
 use infrajs\template\Template;
 
 if (!is_file('vendor/autoload.php')) {
@@ -13,7 +14,18 @@ if (!is_file('vendor/autoload.php')) {
 }
 
 Config::init();
+
 Access::test(true);
+
+header('Infrajs-Test: Start');
+$type = Ans::get('type');
+/** type=auto - Запуск всех тестов. Выполняется из других скриптов Load::loadJSON('-tester/?type=auto');
+ *  Если все result true выдать один положительный ответ result: true
+ *  Если найдена ошибка то добавляется переадресация на страницу с ошибками type=errors без exit
+ *  type=errors - показывает только ошибки и инструкцию для справления
+ *  Если ошибок нет переадресовывает на -tester/
+ **/
+$ans = array();
 
 $plugin=Ans::GET('plugin');
 
@@ -45,7 +57,8 @@ foreach ($conf as $name=>$c) {
 		}
 	});
 }
-$data = array();
+$data = array('list'=>array());
+$errors = array();
 foreach($list as $name=>$files) {
 	foreach($files as $file){
 		$ext = Path::getExt($file);
@@ -57,16 +70,30 @@ foreach($list as $name=>$files) {
 		} else {
 			
 			$res = Load::json_decode($text, true);
-			
 			if (!is_array($res)) {
-				$res = array('title' => $name.' '.$finfo['name'], 'result' => 0, 'msg' => 'Некорректный json');
+				$res = array('result' => 0, 'msg' => 'Некорректный json '.print_r($res,true));
 			}
 		}
+
 		$res['src'] = $finfo['src'];
 		$res['name'] = $finfo['file']; //имя тестируемого файла
-		$data[$name][] = $res;
+		
+		
+		if(!$res['result'])	$errors[]=$name;
+		
+		$data['list'][$name][] = $res;
 	}
 }
+/*if ($type=='errors' && !sizeof($data['list'])) {
+	header('Location: '.View::getPath().'-tester/');
+	exit;
+}*/
+if ($type=='auto') {
+	$ans['result'] = !$errors;
+	if (!$ans['result']) $ans['msg'] = implode(', ',$errors).'.';
+	return Ans::ans($ans);
+}
+$data['type']=$type;
 
 $html = Template::parse('-tester/index.tpl', $data);
 echo $html;
