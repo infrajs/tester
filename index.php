@@ -5,7 +5,6 @@ use infrajs\load\Load;
 use infrajs\ans\Ans;
 use infrajs\config\Config;
 use infrajs\each\Each;
-//use infrajs\view\View;
 use infrajs\template\Template;
 
 if (!is_file('vendor/autoload.php')) {
@@ -79,9 +78,13 @@ foreach($list as $name=>$files) {
 		$res['name'] = $finfo['file']; //имя тестируемого файла
 		
 		
-		if(!$res['result'])	$errors[]=$name;
+		if(!$res['result'])	$errors[] = $name.' '.$res['name'].' '.$res['msg'];
 		
-		$data['list'][$name][] = $res;
+		if($type == 'errors') {
+			if(!$res['result'] ) $data['list'][$name][] = $res;
+		} else {
+			$data['list'][$name][] = $res;
+		}
 	}
 }
 /*if ($type=='errors' && !sizeof($data['list'])) {

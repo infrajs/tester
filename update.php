@@ -2,7 +2,6 @@
 	use infrajs\load\Load;
 	use infrajs\access\Access;
 	use infrajs\event\Event;
-	use infrajs\view\View;
 	
 	$ans = Load::loadJSON('-tester/?type=auto');
 	if (!$ans || !$ans['result']) {

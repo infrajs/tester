@@ -1,4 +1,4 @@
 {
 	"js":"test.js",
-	"install":"update.php"
+	"update":"update.php"
 }
