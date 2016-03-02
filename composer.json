@@ -1,5 +1,6 @@
 {
 	"name": "infrajs/tester",
+	"homepage":"https://github.com/infrajs/tester",
 	"license": "GPL3",
 	"require":{
 		"infrajs/once":"~1",
@@ -9,8 +10,5 @@
 		"infrajs/access":"~1",
 		"infrajs/config":"~1",
 		"infrajs/mdreader":"~1"
-	},
-	"autoload": {
-		"psr-4": { "infrajs\\tester\\": "/" }
 	}
 }
