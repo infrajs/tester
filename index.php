@@ -6,10 +6,12 @@ use infrajs\ans\Ans;
 use infrajs\config\Config;
 use infrajs\each\Each;
 use infrajs\template\Template;
+use infrajs\router\Router;
 
 if (!is_file('vendor/autoload.php')) {
 	chdir('../../../');
 	require_once('vendor/autoload.php');
+	Router::init();
 }
 
 Config::init();

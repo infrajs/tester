@@ -3,6 +3,7 @@
 	"homepage":"https://github.com/infrajs/tester",
 	"license": "GPL3",
 	"require":{
+		"infrajs/router":"~1",
 		"infrajs/once":"~1",
 		"infrajs/ans":"~1",
 		"infrajs/each":"~1",
