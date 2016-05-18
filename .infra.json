@@ -1,5 +1,5 @@
 {
-	"js":"test.js",
+	"js":"Tester.js",
 	"update":"update.php",
 	"dependencies":"mem",
 	"updatetest":true
