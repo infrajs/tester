@@ -1,6 +1,6 @@
 {
 	"js":"Tester.js",
 	"update":"update.php",
-	"dependencies":"mem",
+	"dependencies":["mem","load"],
 	"updatetest":true
 }

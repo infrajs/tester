@@ -5,7 +5,7 @@
 	<link href="/vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<script src="/vendor/components/jquery/jquery.js"></script>
 	<script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-	
+	<script src="/-collect/js.php"></script>
 	<style>
 		.navbar ul {
 			list-style:none;
@@ -77,6 +77,7 @@
 		{list::someres}
 	</tbody>
 	</table>
+	<p>Тесты расширений с js выполняются в консоли с помощью команды Tester() и Tester(name)</p>
 	{type=:errors?:ermsgbot}
 {ermsgtop:}<h1 class="alert alert-danger">При тестировании обнаружены критические ошибки</h1>
 {ermsgbot:}
