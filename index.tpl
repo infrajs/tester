@@ -96,7 +96,7 @@
 }</code></pre>
 	</div>
 {someres:}
-	<tr class="bg-info"><th colspan="4"><a href="/-admin/config.php?plugin={~key}">{~key}</a></th></tr>
+	<tr><th colspan="4"><a href="/-admin/config.php?plugin={~key}">{~key}</a></th></tr>
 	{::sometest}
 	{sometest:}
 		<tr class="{class?class?(result?:bg-success?:bg-danger)}">

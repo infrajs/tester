@@ -19,7 +19,7 @@ Config::init();
 Access::test(true);
 
 header('Infrajs-Test: Start');
-$type = Ans::get('type');
+$type = Ans::GET('type');
 /** type=auto - Запуск всех тестов. Выполняется из других скриптов Load::loadJSON('-tester/?type=auto');
  *  Если все result true выдать один положительный ответ result: true
  *  Если найдена ошибка то добавляется переадресация на страницу с ошибками type=errors без exit
@@ -28,10 +28,10 @@ $type = Ans::get('type');
  **/
 $ans = array();
 
-$plugin=Ans::GET('plugin');
+$plugin = Ans::GET('plugin');
 
 
-$conf=Config::get();
+$conf = Config::get();
 
 
 $list = array();
