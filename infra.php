@@ -19,7 +19,7 @@ if ($action == 'true') {
 		$ans = Load::loadJSON('-tester/?type=auto');
 		if (!$ans || !$ans['result']) {
 			error_log('TESTER: There are errors in the tests /-tester/?type=errors '.$ans['msg']);
-			if (Access::debug()) die('TESTER: There are errors in the tests <a href="/-tester/?type=errors">errors</a> <b>'.$ans['msg'].'</b>');
+			//if (Access::debug()) die('TESTER: There are errors in the tests <a href="/-tester/?type=errors">errors</a> <b>'.$ans['msg'].'</b>');
 		} else {
 			echo '<div class="well"><a href="/-tester/">Тестирование</a> выполнено, ошибок не обнаружено.</div>';
 		}
