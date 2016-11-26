@@ -39,7 +39,8 @@ foreach ($conf as $name=>$c) {
 	if ($plugin && $plugin != $name) continue;
 	if (empty($conf[$name]['tester'])) continue;
 	$list[$name]=[];
-	Each::exec($conf[$name]['tester'], function ($tsrc) use (&$list, $name, $c){
+	Each::exec($conf[$name]['tester'], function &($tsrc) use (&$list, $name, $c) {
+		$r = null;
 		$tsrc=Path::theme('-'.$name.'/'.$tsrc);
 		if(!$tsrc) {
 			echo '<pre>';
@@ -56,6 +57,7 @@ foreach ($conf as $name=>$c) {
 		} else {
 			$list[$name][]=Path::pretty($tsrc);
 		}
+		return $r;
 	});
 }
 $data = array('list'=>array());
