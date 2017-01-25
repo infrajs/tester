@@ -82,7 +82,7 @@ foreach($list as $name=>$files) {
 		$res['name'] = $finfo['file']; //имя тестируемого файла
 		
 		
-		if(!$res['result'])	$errors[] = $name.' '.$res['name'].' '.$res['msg'];
+		if (empty($res['result']))	$errors[] = $name.' '.$res['name'].' '.$res['msg'];
 		
 		if($type == 'errors') {
 			if(!$res['result'] ) $data['list'][$name][] = $res;
