@@ -1,11 +1,7 @@
 {root:}
 <html>
 <head>
-	
-	<link href="/vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-	<script src="/vendor/components/jquery/jquery.js"></script>
-	<script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="/-collect/js.php"></script>
+	<link rel="stylesheet" href="/-collect/?css"></link>
 	<style>
 		.navbar ul {
 			list-style:none;
@@ -50,7 +46,9 @@
 	</style>
 </head>
 <body>
-	{~length(list)?:body?:nobody}
+	<div class="container">
+		{~length(list)?:body?:nobody}
+	</div>
 </body>
 </html>
 {nobody:}<div class="well">Ошибки не найдены. <a href=".">Тесты</a>.</div>
