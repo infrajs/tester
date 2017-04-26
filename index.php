@@ -85,7 +85,7 @@ foreach($list as $name=>$files) {
 		if (empty($res['result']))	$errors[] = $name.' '.$res['name'].' '.$res['msg'];
 		
 		if($type == 'errors') {
-			if(!$res['result'] ) $data['list'][$name][] = $res;
+			if(empty($res['result'])) $data['list'][$name][] = $res;
 		} else {
 			$data['list'][$name][] = $res;
 		}
