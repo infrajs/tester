@@ -1,7 +1,6 @@
 {
 	"name": "infrajs/tester",
 	"homepage":"https://github.com/infrajs/tester",
-	"license": "GPL3",
 	"require":{
 		"infrajs/load":"~1",
 		"infrajs/collect":"~1",
