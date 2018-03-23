@@ -1,6 +1,7 @@
 {
 	"js":"Tester.js",
 	"update":"update.php",
+	"off":true,
 	"dependencies":["mem","load","access"],
 	"require":"infra.php",
 	"updatetest":true
